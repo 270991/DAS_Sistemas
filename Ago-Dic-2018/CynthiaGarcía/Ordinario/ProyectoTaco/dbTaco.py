@@ -31,8 +31,6 @@ class RecetaBD(BD):
     id = Column(Integer, primary_key=True)
     idtaco = Column(Integer, ForeignKey('Taco.id')) #llave foranea "idtaco" que es tomada del "id" de la tabla taco.
     receta = Column('receta', String)
-    __table_args__ = (UniqueConstraint('receta'), {'sqlite_autoincrement': True}) #incrementos de Rowid=pseudocolumna unica para cada fila
-
 
 class VentaBD(BD):
     __tablename__ = 'Venta'
@@ -44,4 +42,4 @@ class VentaBD(BD):
 
 engine = create_engine('sqlite:///Taco.db', echo=True) #hace la conexión a la base de datos mediante el archivo
 BD.metadata.create_all(bind=engine)    #esta linea genera la base de datos BD
-Session = sessionmaker(bind=engine)    #
+Session = sessionmaker(bind=engine)    

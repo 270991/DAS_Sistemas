@@ -52,7 +52,7 @@ class Crud():
             self.session.commit()
             self.session.close()
         except Exception as inst:
-            print(inst)
+            print("Error receta existente")
 
     def getRecetas(self, idtaco):
         recetas = self.session.query(RecetaBD).filter_by(idtaco=idtaco)
@@ -67,7 +67,7 @@ class Crud():
             self.session.commit()
             self.session.close()
         except Exception as inst:
-            print(inst)
+            print("Error taco existente")
 
     def getTacos(self):
         taco = self.session.query(TacoBD) #devuelve un objeto consulta como un "select" generado por el ORM 
